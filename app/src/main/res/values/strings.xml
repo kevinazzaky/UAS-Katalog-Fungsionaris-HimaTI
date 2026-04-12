@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">KatalogHimaTI</string>
+    <string name="app_name">Katalog HIMA TI</string>
+    <string name="title_list">Direktori Fungsionaris</string>
+    <string name="hint_search">Cari nama atau jabatan...</string>
+    <string name="btn_search">Cari</string>
+    <string name="btn_sort_az">Urutkan A-Z</string>
+    <string name="btn_sort_za">Urutkan Z-A</string>
 </resources>
