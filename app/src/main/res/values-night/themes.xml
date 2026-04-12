@@ -1,7 +1,13 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<resources xmlns:tools="http://schemas.microsoft.com/tools">
     <style name="Base.Theme.KatalogHimaTI" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/warm_gold_accent</item>
+        <item name="colorOnPrimary">@color/black_bg</item>
+
+        <item name="android:background">@color/black_bg</item>
+        <item name="android:windowBackground">@color/black_bg</item>
+
+        <item name="android:textColor">@color/warm_gold_accent</item>
     </style>
+
+    <style name="Theme.KatalogHimaTI" parent="Base.Theme.KatalogHimaTI" />
 </resources>
