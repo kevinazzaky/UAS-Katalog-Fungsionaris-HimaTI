@@ -1,88 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_bg"
-    android:padding="16dp"
-    tools:context=".ui.MainActivity">
+    android:background="@color/black_bg">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_list"
-        android:textColor="@color/warm_gold_accent"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/et_search"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:drawable/editbox_background"
-        android:backgroundTint="@color/white"
-        android:hint="@string/hint_search"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:textColor="@color/black_bg"
-        app:layout_constraintEnd_toStartOf="@+id/btn_search"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title" />
-
-    <Button
-        android:id="@+id/btn_search"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:backgroundTint="@color/warm_gold_accent"
-        android:text="@string/btn_search"
-        android:textColor="@color/black_bg"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/et_search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/et_search" />
-
-    <Button
-        android:id="@+id/btn_sort_az"
-        android:layout_width="0dp"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="4dp"
-        android:backgroundTint="@color/warm_gold_accent"
-        android:text="@string/btn_sort_az"
-        android:textColor="@color/black_bg"
-        app:layout_constraintEnd_toStartOf="@+id/btn_sort_za"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_search" />
-
-    <Button
-        android:id="@+id/btn_sort_za"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:backgroundTint="@color/warm_gold_accent"
-        android:text="@string/btn_sort_za"
-        android:textColor="@color/black_bg"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_sort_az"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_sort_az"
-        app:layout_constraintTop_toTopOf="@+id/btn_sort_az" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_fungsionaris"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:background="@color/black_bg"
+        app:itemIconTint="@color/warm_gold_accent"
+        app:itemTextColor="@color/warm_gold_accent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_sort_az"
-        tools:listitem="@layout/item_fungsionaris" />
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

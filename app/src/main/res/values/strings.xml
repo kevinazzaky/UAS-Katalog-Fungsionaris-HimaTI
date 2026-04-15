@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Katalog HIMA TI</string>
-    <string name="title_list">Direktori Fungsionaris</string>
-    <string name="hint_search">Cari nama atau jabatan...</string>
-    <string name="btn_search">Cari</string>
-    <string name="btn_sort_az">Urutkan A-Z</string>
-    <string name="btn_sort_za">Urutkan Z-A</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_search">Search</string>
+
+    <string name="cat_pembimbing">Pembimbing</string>
+    <string name="cat_inti">Inti</string>
+    <string name="cat_psdm">PSDM</string>
+    <string name="cat_hh">HH</string>
+    <string name="cat_kominfo">Kominfo</string>
+    <string name="cat_delegasi">Delegasi</string>
 </resources>
