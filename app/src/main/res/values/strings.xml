@@ -9,4 +9,5 @@
     <string name="cat_hh">HH</string>
     <string name="cat_kominfo">Kominfo</string>
     <string name="cat_delegasi">Delegasi</string>
+    <string name="hint_search">Cari fungsionaris...</string>
 </resources>
