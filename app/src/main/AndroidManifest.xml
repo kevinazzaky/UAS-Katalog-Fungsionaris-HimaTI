@@ -26,6 +26,8 @@
             android:exported="false">
         </activity>
 
+        <activity android:name=".presentation.login.add.AddFungsionarisActivity" />
+
     </application>
 
 </manifest>
