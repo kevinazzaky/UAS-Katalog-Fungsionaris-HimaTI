@@ -11,7 +11,7 @@ import com.example.kataloghimati.R
 
 class AddFungsionarisActivity : AppCompatActivity() {
 
-    // Memanggil ViewModel yang ada di folder yang sama
+
     private val viewModel = AddFungsionarisViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,18 +29,28 @@ class AddFungsionarisActivity : AppCompatActivity() {
         spinnerDivisi.setAdapter(adapter)
 
         btnSimpan.setOnClickListener {
+
             val nama = etNama.text.toString()
             val nim = etNim.text.toString()
             val tahun = etTahun.text.toString()
             val divisi = spinnerDivisi.text.toString()
 
+
             val hasilValidasi = viewModel.cekDataBaru(nama, nim, tahun, divisi)
 
+
             if (hasilValidasi.first) {
-                Toast.makeText(this, hasilValidasi.second, Toast.LENGTH_SHORT).show()
-            } else {
+
+                Toast.makeText(this, "Berhasil! Data $nama ($divisi) siap dimasukkan ke Database nanti.", Toast.LENGTH_LONG).show()
+
+
+                finish()
+            }
+            else {
+
                 Toast.makeText(this, "Gagal: ${hasilValidasi.second}", Toast.LENGTH_LONG).show()
             }
+
         }
     }
 }
