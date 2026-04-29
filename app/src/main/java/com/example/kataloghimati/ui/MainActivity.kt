@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         val fabAdd = findViewById<FloatingActionButton>(R.id.fab_add_fungsionaris) // Kenalkan FAB
 
-        // 🚀 PERBAIKAN DI SINI: Tujuan Intent diubah ke Activity yang benar
+
         fabAdd.setOnClickListener {
             val intent = Intent(this, AddFungsionarisActivity::class.java)
             startActivity(intent)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             bukaFragment(HomeFragment())
         }
 
-        // Logika saat tombol navigasi bawah diklik
+
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {

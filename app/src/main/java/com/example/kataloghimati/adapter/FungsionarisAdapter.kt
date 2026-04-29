@@ -4,13 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kataloghimati.R
-import com.example.kataloghimati.model.Fungsionaris
+import com.example.kataloghimati.data.FungsionarisEntity
 
-class FungsionarisAdapter(private var listFungsionaris: List<Fungsionaris>) :
-    RecyclerView.Adapter<FungsionarisAdapter.FungsionarisViewHolder>() {
 
+class FungsionarisAdapter : ListAdapter<FungsionarisEntity, FungsionarisAdapter.FungsionarisViewHolder>(DiffCallback) {
 
     class FungsionarisViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvNama: TextView = itemView.findViewById(R.id.tv_nama)
@@ -25,21 +26,27 @@ class FungsionarisAdapter(private var listFungsionaris: List<Fungsionaris>) :
     }
 
     override fun onBindViewHolder(holder: FungsionarisViewHolder, position: Int) {
-        val fungsionaris = listFungsionaris[position]
+        // 2. Mengambil data dari Room Database
+        val fungsionaris = getItem(position)
 
+        // 3. Menempelkan data ke layar
         holder.tvNama.text = fungsionaris.nama
-
-
         holder.tvNim.text = "NIM: ${fungsionaris.nim}"
-        holder.tvJabatan.text = "Jabatan: ${fungsionaris.jabatan}"
+
+        // Menggabungkan Divisi dan Tahun agar tampil di kolom Jabatan
+        holder.tvJabatan.text = "Divisi ${fungsionaris.divisi} (${fungsionaris.tahun})"
     }
 
-    override fun getItemCount(): Int {
-        return listFungsionaris.size
-    }
+    // 4. Alat pintar untuk mengecek jika ada data baru masuk/berubah dari database
+    companion object {
+        private val DiffCallback = object : DiffUtil.ItemCallback<FungsionarisEntity>() {
+            override fun areItemsTheSame(oldItem: FungsionarisEntity, newItem: FungsionarisEntity): Boolean {
+                return oldItem.id == newItem.id
+            }
 
-    fun updateData(newList: List<Fungsionaris>) {
-        listFungsionaris = newList
-        notifyDataSetChanged()
+            override fun areContentsTheSame(oldItem: FungsionarisEntity, newItem: FungsionarisEntity): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 }
