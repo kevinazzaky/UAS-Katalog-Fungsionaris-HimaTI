@@ -23,8 +23,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        val fabAdd = findViewById<FloatingActionButton>(R.id.fab_add_fungsionaris) // Kenalkan FAB
-
+        val fabAdd = findViewById<FloatingActionButton>(R.id.fab_add_fungsionaris)
 
         fabAdd.setOnClickListener {
             val intent = Intent(this, AddFungsionarisActivity::class.java)
@@ -34,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             bukaFragment(HomeFragment())
         }
-
 
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {

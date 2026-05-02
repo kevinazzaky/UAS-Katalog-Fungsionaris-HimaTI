@@ -3,6 +3,7 @@ package com.example.kataloghimati.ui
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,36 +32,40 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val database = AppDatabase.getDatabase(requireContext())
         val repository = FungsionarisRepository(database.fungsionarisDao())
         viewModel = MainViewModel(repository)
-
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.rv_search_results)
         adapter = FungsionarisAdapter()
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 
-
         val etSearchBar = view.findViewById<EditText>(R.id.et_search_bar)
 
         etSearchBar.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val kataKunci = s.toString()
 
-                if (kataKunci.isNotEmpty()) {
 
-                    viewModel.cariDataBerdasarkanNama(kataKunci).observe(viewLifecycleOwner) { hasil ->
+                try {
 
-                        adapter.submitList(hasil)
+                    Log.d("42430029", "User mengetik pencarian: '$kataKunci'")
+
+                    if (kataKunci.isNotEmpty()) {
+                        viewModel.cariDataBerdasarkanNama(kataKunci).observe(viewLifecycleOwner) { hasil ->
+                            adapter.submitList(hasil)
+
+                            Log.d("42430029", "Pencarian '$kataKunci' menemukan ${hasil.size} data.")
+                        }
+                    } else {
+                        adapter.submitList(emptyList())
                     }
-                } else {
+                } catch (e: Exception) {
 
-                    adapter.submitList(emptyList())
+                    Log.e("42430029", "ERROR saat mencari data: ${e.message}")
                 }
             }
 
