@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +18,6 @@ import com.example.kataloghimati.presentation.main.MainViewModelFactory
 import com.google.android.material.tabs.TabLayout
 
 class HomeFragment : Fragment() {
-
 
     private val viewModel: MainViewModel by activityViewModels {
         val database = AppDatabase.getDatabase(requireContext())
@@ -51,10 +51,8 @@ class HomeFragment : Fragment() {
 
         val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout)
 
-
         val posisiTerakhir = viewModel.getPosisiTabAktif()
         tabLayout.getTabAt(posisiTerakhir)?.select()
-
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -71,5 +69,17 @@ class HomeFragment : Fragment() {
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
+
+
+        val btnSortAz = view.findViewById<Button>(R.id.btn_sort_az)
+        val btnSortZa = view.findViewById<Button>(R.id.btn_sort_za)
+
+        btnSortAz.setOnClickListener {
+            viewModel.ubahUrutan(true)
+        }
+
+        btnSortZa.setOnClickListener {
+            viewModel.ubahUrutan(false)
+        }
     }
 }

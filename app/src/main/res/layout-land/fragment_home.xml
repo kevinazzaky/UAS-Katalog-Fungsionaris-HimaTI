@@ -4,49 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_bg"
-    android:padding="8dp">
+    android:background="@color/black_bg">
 
-    <TextView
-        android:id="@+id/tv_header_home"
+    <!-- Garis bantu tak terlihat untuk membagi layar menjadi 40% Kiri, 60% Kanan -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <!-- ================= BAGIAN KIRI ================= -->
+    <TextView
+        android:id="@+id/tv_header_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:text="Fungsionaris HIMA TI"
         android:textColor="@color/warm_gold_accent"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:background="@color/black_bg"
+        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_header_home"
         app:tabIndicatorColor="@color/warm_gold_accent"
         app:tabMode="scrollable"
         app:tabSelectedTextColor="@color/warm_gold_accent"
         app:tabTextColor="#88FFFFFF">
 
-        <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cat_pembimbing" />
-        <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cat_inti" />
-        <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cat_psdm" />
-        <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cat_hh" />
-        <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cat_kominfo" />
-        <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cat_delegasi" />
+        <com.google.android.material.tabs.TabItem android:text="@string/cat_pembimbing" />
+        <com.google.android.material.tabs.TabItem android:text="@string/cat_inti" />
+        <com.google.android.material.tabs.TabItem android:text="@string/cat_psdm" />
+        <com.google.android.material.tabs.TabItem android:text="@string/cat_hh" />
+        <com.google.android.material.tabs.TabItem android:text="@string/cat_kominfo" />
+        <com.google.android.material.tabs.TabItem android:text="@string/cat_delegasi" />
+
     </com.google.android.material.tabs.TabLayout>
+
+    <!-- Tombol disusun vertikal agar rapi di sisi kiri -->
+    <LinearLayout
+        android:id="@+id/layout_sorting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tab_layout">
+
+        <Button
+            android:id="@+id/btn_sort_az"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Urutkan A-Z"
+            android:backgroundTint="@color/warm_gold_accent"
+            android:textColor="@color/black_bg"/>
+
+        <Button
+            android:id="@+id/btn_sort_za"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Urutkan Z-A"
+            android:backgroundTint="@color/warm_gold_accent"
+            android:textColor="@color/black_bg"/>
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_fungsionaris_home"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="4dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
+        android:layout_marginStart="8dp"
+        android:paddingTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tab_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_fungsionaris" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
