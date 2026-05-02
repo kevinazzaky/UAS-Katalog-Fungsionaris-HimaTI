@@ -56,7 +56,7 @@ Aplikasi Android ini dibangun sebagai platform manajemen informasi untuk mendata
 
 | Tampilan Portrait | Tampilan Landscape |
 | :---: | :---: |
-| <img width="250" alt="search-potrait" src="https://github.com/user-attachments/assets/d5387100-124b-44b7-99c4-4aa5c3bdfbc8" /> | <img width="450" alt="home-landscape" src="https://github.com/user-attachments/assets/13685f14-993c-4c15-b249-a85dbee40a19" /> |
+| <img width="250" alt="search-potrait" src="https://github.com/user-attachments/assets/d5387100-124b-44b7-99c4-4aa5c3bdfbc8" /> | <img width="450" alt="search-landscape" src="https://github.com/user-attachments/assets/be6fb188-ceac-48bf-ad99-a7d84e5d2b15" /> |
 
 ### 4. Halaman Tambah Data & Validasi
 > *Pemenuhan Modul 5 (Validasi Input Data Form).*
