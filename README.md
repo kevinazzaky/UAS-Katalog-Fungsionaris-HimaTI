@@ -18,7 +18,7 @@
 ---
 
 ## 📱 Topik Aplikasi
-**Katalog Fungsionaris HIMA TI (Himpunan Mahasiswa Teknik Informatika)**
+**Katalog Fungsionaris HIMA TI (Himpunan Mahasiswa Program Studi Teknologi Informasi)**
 
 Aplikasi Android ini dibangun sebagai platform manajemen informasi untuk mendata, mencari, dan mengelola daftar fungsionaris himpunan. Aplikasi ini dikembangkan dengan arsitektur modern (*MVVM, Coroutines, Room Database*) serta difokuskan untuk memenuhi seluruh spesifikasi pemenuhan modul praktikum.
 
